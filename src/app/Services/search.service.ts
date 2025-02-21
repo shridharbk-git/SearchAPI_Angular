@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class SearchService {
 
-  private apiUrl =  'https://help-search-api-prod.herokuapp.com/search';
+  private apiUrl = 'http://help-search-api-prod.herokuapp.com/api/search/search';
 
   constructor(private http: HttpClient) { }
 
