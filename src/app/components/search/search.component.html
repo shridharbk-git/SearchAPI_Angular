@@ -1,0 +1,41 @@
+
+<div class="search-container">
+    <input
+      type="text"
+      [(ngModel)]="query"
+      placeholder="Search for help articles"
+      (keydown.enter)="search(query)"
+    />
+    <button (click)="search(query)">Search</button>
+  </div>
+  
+  <div *ngIf="results.length > 0">
+    <ul>
+      <li *ngFor="let result of results">
+        <h3>{{ result.title }}</h3>
+        <p>{{ result.summary }}</p>
+        <a [href]="result.url" target="_blank">Read more</a>
+      </li>
+    </ul>
+  
+    <!-- Pagination -->
+    <div class="pagination">
+      <button
+        (click)="onPageChange(currentPage - 1)"
+        [disabled]="currentPage === 1"
+      >
+        Previous
+      </button>
+      <span>Page {{ currentPage }}</span>
+      <button
+        (click)="onPageChange(currentPage + 1)"
+        [disabled]="currentPage * resultsPerPage >= totalResults">
+        Next
+      </button>
+    </div>
+  </div>
+  
+  <div *ngIf="results.length === 0">
+    <p>No results found. Please try a different query.</p>
+  </div>
+  

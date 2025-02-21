@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+           
             "outputPath": "dist/help-search-app",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -58,6 +59,10 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "port": 3000,
+            "open": true
+          },
           "configurations": {
             "production": {
               "browserTarget": "help-search-app:build:production"
@@ -94,5 +99,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
